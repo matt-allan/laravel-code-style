@@ -1,0 +1,51 @@
+{
+    "name": "matt-allan/laravel-code-style",
+    "description": "Code formatting for Laravel projects",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/matt-allan/laravel-code-style",
+    "authors": [
+        {
+            "name": "Matt Allan",
+            "email": "matt@mattallan.me"
+        }
+    ],
+    "keywords": [
+        "laravel",
+        "code-style",
+        "php-cs-fixer",
+        "psr-2"
+    ],
+    "autoload": {
+        "psr-4": {
+            "MattAllan\\LaravelCodeStyle\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "illuminate/support": "5.8.x",
+        "friendsofphp/php-cs-fixer": "^2.14"
+    },
+    "require-dev": {
+        "laravel/framework": "^5.8",
+        "phpunit/phpunit": "^8.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "MattAllan\\LaravelCodeStyle\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "php-cs-fixer fix --dry-run --diff",
+        "fix-style": "php-cs-fixer fix"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
