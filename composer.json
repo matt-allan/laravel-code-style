@@ -28,7 +28,7 @@
     },
     "require-dev": {
         "laravel/framework": "^5.8.13",
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^7.0"
     },
     "extra": {
         "branch-alias": {
