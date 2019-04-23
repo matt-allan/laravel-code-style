@@ -19,7 +19,7 @@ class FormattingTest extends TestCase
         $input = new ArrayInput([
            'command' => 'fix',
            'path' => [__DIR__.'/../vendor/laravel/framework'],
-           '--config' => __DIR__ . '/fixtures/.php_cs',
+           '--config' => __DIR__.'/fixtures/.php_cs',
            '--dry-run' => true,
            '--format' => 'json',
         ]);
