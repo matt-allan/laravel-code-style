@@ -13,14 +13,13 @@ class FormattingTest extends TestCase
 {
     public function test_formatting_matches_laravel()
     {
-        chdir(__DIR__.'/../');
-
         $application = new Application();
         $application->setAutoExit(false);
 
         $input = new ArrayInput([
            'command' => 'fix',
            'path' => [__DIR__.'/../vendor/laravel/framework'],
+           '--config' => __DIR__ . '/fixtures/.php_cs',
            '--dry-run' => true,
            '--format' => 'json',
         ]);
@@ -35,10 +34,21 @@ class FormattingTest extends TestCase
         }, $content['files']);
 
         // These files violate the rules Laravel uses, I guess they need to be fixed.
+        // to debug: vendor/bin/php-cs-fixer fix --dry-run --config=tests/fixtures/.php_cs ./vendor/laravel/framework/ --format checkstyle
         $ignored = [
-            // violates simplified_null_return
+            'vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php',
+            'vendor/laravel/framework/src/Illuminate/Pagination/UrlWindow.php',
+            'vendor/laravel/framework/src/Illuminate/Broadcasting/Broadcasters/Broadcaster.php',
+            'vendor/laravel/framework/src/Illuminate/Cache/NullStore.php',
+            'vendor/laravel/framework/src/Illuminate/Cache/DynamoDbStore.php',
+            'vendor/laravel/framework/src/Illuminate/Cache/ArrayStore.php',
+            'vendor/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php',
+            'vendor/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
+            'vendor/laravel/framework/src/Illuminate/Foundation/Application.php',
+            'vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithExceptionHandling.php',
+            'vendor/laravel/framework/src/Illuminate/Foundation/Console/RouteListCommand.php',
+            'vendor/laravel/framework/src/Illuminate/Support/Str.php',
             'vendor/laravel/framework/src/Illuminate/Http/Resources/ConditionallyLoadsAttributes.php',
-            // violates no_useless_return
             'vendor/laravel/framework/src/Illuminate/Queue/DatabaseQueue.php',
         ];
 
