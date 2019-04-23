@@ -51,7 +51,12 @@ class Config extends \PhpCsFixer\Config
             'lowercase_keywords' => true,
             'magic_constant_casing' => true,
             'method_argument_space' => true,
-            'class_attributes_separation' => true,
+            'class_attributes_separation' => [
+                'elements' => [
+                    'method',
+                    'property',
+                ],
+            ],
             'visibility_required' => true,
             'native_function_casing' => true,
             'no_blank_lines_after_class_opening' => true,
