@@ -33,14 +33,8 @@ class FormattingTest extends TestCase
             return $file['name'];
         }, $content['files']);
 
-        // These files violate the rules Laravel uses, I guess they need to be fixed.
-        // to debug: vendor/bin/php-cs-fixer fix --dry-run --config=tests/fixtures/.php_cs ./vendor/laravel/framework/ --format checkstyle
-        $ignored = [
-            'vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithExceptionHandling.php',
-        ];
-
         $this->assertEmpty(
-            array_diff($files, $ignored),
+            $files,
             'Existing Laravel files should not need to be fixed.'
         );
     }
