@@ -18,6 +18,7 @@ class Config extends \PhpCsFixer\Config
             'binary_operator_spaces' => [
                 'operators' => [
                     '=' => 'single_space',
+                    '=>' => null,
                 ],
             ],
             'blank_line_after_namespace' => true,
