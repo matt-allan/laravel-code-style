@@ -10,7 +10,7 @@ The package adds the [php-cs-fixer](https://github.com/FriendsOfPhp/PHP-CS-Fixer
 
 You might want to use this package if you are writing a Laravel application, package or tutorial and you want to match the framework's code style.
 
-![example code formatting](https://repository-images.githubusercontent.com/182856423/6d64dc80-6526-11e9-835c-d54082bd2196)
+![example code formatting](https://repository-images.githubusercontent.com/182856423/07c42600-6fe5-11e9-88fb-dd2e7451c77a)
 
 ## Installation
 
