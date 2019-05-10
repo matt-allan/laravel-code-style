@@ -15,3 +15,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Removed
 
 ### Security
+
+## 0.3.0
+
+### Added
+
+- Added support for installation in 5.7.* Laravel apps
