@@ -61,7 +61,14 @@ class Config extends \PhpCsFixer\Config
             'native_function_casing' => true,
             'no_blank_lines_after_class_opening' => true,
             'no_blank_lines_after_phpdoc' => true,
-            'no_extra_blank_lines' => true,
+            'no_extra_blank_lines' => [
+                'tokens' => [
+                    'extra',
+                    'throw',
+                    'use',
+                    'use_trait',
+                ],
+            ],
             'no_closing_tag' => true,
             'no_empty_phpdoc' => true,
             'no_empty_statement' => true,
