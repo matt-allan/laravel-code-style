@@ -23,7 +23,7 @@
     },
     "require": {
         "php": ">=7.1",
-        "illuminate/support": "5.7.x|5.8.x",
+        "illuminate/support": "5.7.x|5.8.x|6.x",
         "friendsofphp/php-cs-fixer": "^2.14"
     },
     "require-dev": {
