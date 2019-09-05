@@ -20,6 +20,8 @@ rules.
 
 ### Removed
 
+- Dropped PHP 7.1 support.
+
 ### Security
 
 ## 0.3.0
