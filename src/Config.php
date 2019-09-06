@@ -47,6 +47,9 @@ class Config extends \PhpCsFixer\Config
             'ordered_imports' => [
                 'sort_algorithm' => 'length',
             ],
+            'list_syntax' => [
+                'syntax' => 'short',
+            ],
             'lowercase_cast' => true,
             'lowercase_constants' => true,
             'lowercase_keywords' => true,
