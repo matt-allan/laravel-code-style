@@ -45,7 +45,7 @@ class Config extends \PhpCsFixer\Config
             'include' => true,
             'indentation_type' => true,
             'ordered_imports' => [
-                'sort_algorithm' => 'length',
+                'sort_algorithm' => 'alpha',
             ],
             'list_syntax' => [
                 'syntax' => 'short',

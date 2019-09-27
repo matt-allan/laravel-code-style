@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MattAllan\LaravelCodeStyle;
 
-use PHPUnit\Framework\TestCase;
 use PhpCsFixer\Console\Application;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 

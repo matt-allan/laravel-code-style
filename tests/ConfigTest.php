@@ -21,7 +21,7 @@ class ConfigTest extends TestCase
         $this->assertArrayNotHasKey('@Laravel:risky', $config->getRules());
 
         $this->assertArrayHasKey('ordered_imports', $config->getRules());
-        $this->assertSame(['sort_algorithm' => 'length'], $config->getRules()['ordered_imports']);
+        $this->assertSame(['sort_algorithm' => 'alpha'], $config->getRules()['ordered_imports']);
 
         $this->assertArrayHasKey('no_alias_functions', $config->getRules());
         $this->assertTrue($config->getRules()['no_alias_functions']);
