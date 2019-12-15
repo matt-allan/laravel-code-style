@@ -174,6 +174,15 @@ It isn't possible to add your own presets to php-cs-fixer.  Instead `PhpCsFixer\
 
 To ensure the rules stay in sync an automated test formats the entire Laravel framework and compares the results.  If an existing Laravel file does not match our rule set the build is failed.
 
+## Releases
+
+When Laravel changes the code style a new major release is created for this package. You will need to edit the version constraint in your `composer.json` to pull in the updated rules. If you would like your code style to match a previous version of Laravel you may pull in an older release of this package.
+
+ Laravel  | Code Style
+:---------|:----------
+ 5.x      | 0.4.x
+ 6.x      | 0.5.x
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
