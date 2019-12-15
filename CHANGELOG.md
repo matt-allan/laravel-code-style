@@ -4,11 +4,30 @@ All notable changes will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## Unreleased
+
+### Added
+
+### Deprecated
+
+### Fixed
+
+### Removed
+
+### Security
+
+## 0.5.0
+
+### Added
+
+- Added the `list_syntax` rule.
+- Switched from length sorted imports to alpha sorted imports.
+
 ## 0.4.0
 
 ### Added
 
-- Added the no_extra_blank_lines rule for tokens throw, use, and use_trait. This corresponds to StyleCI's no_blank_lines_after_throw, no_blank_lines_between_imports, and no_blank_lines_between_traits
+- Added the `no_extra_blank_lines` rule for tokens `throw`, `use`, and `use_trait`. This corresponds to StyleCI's `no_blank_lines_after_throw`, `no_blank_lines_between_imports`, and `no_blank_lines_between_traits`
 rules.
 - Added support for Laravel 6.0.
 
