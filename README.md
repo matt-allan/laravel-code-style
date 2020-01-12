@@ -127,7 +127,7 @@ For a complete list of options refer to the [Symfony Finder documentation](https
 
 ### Rules
 
-By default only the `@Laravel` preset is enabled.  This preset enforces the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) as well as nearly 100 other rules such as ordering use statements by length and requiring trailing commas in multiline arrays.
+By default only the `@Laravel` preset is enabled.  This preset enforces the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) as well as nearly 100 other rules such as ordering use statements alphabetically and requiring trailing commas in multiline arrays.
 
 A `@Laravel:risky` preset is also available.  The `@Laravel:risky` preset enables rules that may change code behavior.  To enable risky rules you need to add the preset and set `isRiskyEnabled` to true.
 
