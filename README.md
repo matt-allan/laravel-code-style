@@ -16,6 +16,8 @@ If you are wondering why this package exists you can [read the announcement post
 
 ## Installation
 
+> ⚠️ These docs are for the latest version. If you are using an older version you can find the docs for previous releases [here](#releases).
+
 Require this package with composer. It is recommended to only require the package for development.
 
 ```shell
@@ -180,8 +182,8 @@ When Laravel changes the code style a new major release is created for this pack
 
  Laravel  | Code Style
 :---------|:----------
- 5.x      | 0.4.x
- 6.x      | 0.5.x
+ 5.x      | [0.4.x](https://github.com/matt-allan/laravel-code-style/tree/0.4.0)
+ 6.x      | [0.5.x](https://github.com/matt-allan/laravel-code-style/tree/0.5.0)
 
 ## Change log
 
