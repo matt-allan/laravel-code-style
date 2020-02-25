@@ -1,0 +1,44 @@
+name: Tests
+
+on: [ "push", "pull_request" ]
+
+jobs:
+  phpunit:
+    name: Testing (PHP ${{ matrix.php-versions }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 15
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4']
+        include:
+          - php-versions: 7.2
+            dependency-version: "--prefer-lowest --prefer-stable"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: php-${{ matrix.php-versions }}-composer-${{ hashFiles('composer.json') }}
+
+      - name: Validate Composer files
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer update ${{ matrix.dependency-version }}  --prefer-dist --no-interaction --no-progress --no-suggest
+
+      - name: Check for style violations
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff
+
+      - name: Run test suite
+        run: vendor/bin/phpunit
+
