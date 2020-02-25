@@ -27,7 +27,7 @@
         "friendsofphp/php-cs-fixer": "^2.14"
     },
     "require-dev": {
-        "laravel/framework": "^6.0.3|^7.0",
+        "laravel/framework": "^7.0",
         "phpunit/phpunit": "^7.0"
     },
     "extra": {
