@@ -1,6 +1,7 @@
 ## Laravel Code Style
 [![Packagist License](https://poser.pugx.org/matt-allan/laravel-code-style/license.png)](http://choosealicense.com/licenses/mit/)
 [![Latest Stable Version](https://poser.pugx.org/matt-allan/laravel-code-style/version.png)](https://packagist.org/packages/matt-allan/laravel-code-style)
+![Tests](https://github.com/matt-allan/laravel-code-style/workflows/Tests/badge.svg)
 
 
 This package provides automatic code style checking and formatting for Laravel applications and packages. Your code is formatted following Laravel's code style guide.
