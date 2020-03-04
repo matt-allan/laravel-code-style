@@ -16,6 +16,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Security
 
+## 0.5.1
+
+### Added
+
+- Added support for Laravel 7.
+
 ## 0.5.0
 
 ### Added
