@@ -13,29 +13,27 @@ class FormattingTest extends TestCase
 {
     public function test_formatting_matches_laravel()
     {
-        $application = new Application();
-        $application->setAutoExit(false);
+        $application = tap(new Application())->setAutoExit(false);
+        $exitCode = $application->run(
+            new ArrayInput([
+                'command' => 'fix',
+                'path' => [__DIR__.'/../vendor/laravel/framework'],
+                '--config' => __DIR__.'/fixtures/.php_cs',
+                '--dry-run' => true,
+                '--diff' => true,
+                '--verbose' => true,
+            ]),
+            $output = new BufferedOutput()
+        );
 
-        $input = new ArrayInput([
-           'command' => 'fix',
-           'path' => [__DIR__.'/../vendor/laravel/framework'],
-           '--config' => __DIR__.'/fixtures/.php_cs',
-           '--dry-run' => true,
-           '--format' => 'json',
-        ]);
-
-        $output = new BufferedOutput();
-        $application->run($input, $output);
-
-        $content = json_decode($output->fetch(), true);
-
-        $files = array_map(function (array $file) {
-            return $file['name'];
-        }, $content['files']);
-
-        $this->assertEmpty(
-            $files,
-            'Existing Laravel files should not need to be fixed.'
+        $this->assertEquals(
+            0,
+            $exitCode,
+            implode(PHP_EOL, [
+                'Existing Laravel files should not need to be fixed.',
+                'Output:',
+                $output->fetch(),
+            ])
         );
     }
 }
