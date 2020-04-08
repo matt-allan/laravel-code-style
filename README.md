@@ -158,7 +158,7 @@ return (new MattAllan\LaravelCodeStyle\Config())
         ]);
 ```
 
-For a complete list of available rules please refer to the [php-cs-fixer documentation](https://github.com/fabpot/PHP-CS-Fixer).
+For a complete list of available rules please refer to the [php-cs-fixer documentation](https://github.com/FriendsOfPhp/PHP-CS-Fixer#usage).
 
 ## Continuous Integration
 
@@ -166,7 +166,7 @@ To automatically fix the code style when someone opens a pull request or pushes 
 
 ## Editor Support
 
-Any editor plugin for php-cs-fixer will work. Check the [php-cs-fixer readme](https://github.com/fabpot/PHP-CS-Fixer#helpers) for more info.
+Any editor plugin for php-cs-fixer will work. Check the [php-cs-fixer readme](https://github.com/FriendsOfPhp/PHP-CS-Fixer#helpers) for more info.
 
 ## How It Works
 
