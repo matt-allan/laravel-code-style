@@ -31,7 +31,9 @@ class Config extends \PhpCsFixer\Config
             'braces' => true,
             'cast_spaces' => true,
             'class_definition' => true,
-            'concat_space' => ['spacing' => 'none'],
+            'concat_space' => [
+                'spacing' => 'none',
+            ],
             'declare_equal_normalize' => true,
             'elseif' => true,
             'encoding' => true,
