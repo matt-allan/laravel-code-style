@@ -23,11 +23,11 @@
     },
     "require": {
         "php": ">=7.2",
-        "illuminate/support": "5.7.x|5.8.x|^6.0|^7.0",
+        "illuminate/support": "5.7.x|5.8.x|^6.0|^7.0|^8.0",
         "friendsofphp/php-cs-fixer": "^2.14"
     },
     "require-dev": {
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^7.0|^8.0",
         "phpunit/phpunit": "^7.0"
     },
     "extra": {
