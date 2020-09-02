@@ -28,7 +28,8 @@
     },
     "require-dev": {
         "laravel/framework": "^7.0|^8.0",
-        "phpunit/phpunit": "^7.0"
+        "orchestra/testbench": "^5.0|^6.0",
+        "phpunit/phpunit": "^7.0|^8.0"
     },
     "extra": {
         "branch-alias": {
