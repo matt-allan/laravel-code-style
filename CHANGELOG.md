@@ -16,6 +16,21 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Security
 
+## 0.6.0
+
+### Added
+
+- Added support for Laravel 8.
+
+### Changed
+
+- Switched the `concat_space` rule from `true` to `['spacing' => 'none']`. Functionally it's the same, it's just more readable.
+- Changed the default seeders path from `seeds` to `seeders` in the default `.php_cs` config file to match Laravel 8.0. If you haven't edited your `.php_cs` you can pull in the updated version by running `php artisan vendor:publish --provider="MattAllan\LaravelCodeStyle\ServiceProvider" --force`.
+
+### Removed
+
+### Security
+
 ## 0.5.1
 
 ### Added
