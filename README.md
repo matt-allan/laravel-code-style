@@ -184,6 +184,7 @@ When Laravel changes the code style a new major release is created for this pack
 :---------|:----------
  5.x      | [0.4.x](https://github.com/matt-allan/laravel-code-style/tree/0.4.0)
  6.x-7.x  | [0.5.x](https://github.com/matt-allan/laravel-code-style/tree/0.5.0)
+ 8.x      | [0.6.x](https://github.com/matt-allan/laravel-code-style/tree/0.6.0)
 
 ## Change log
 
