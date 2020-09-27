@@ -296,22 +296,22 @@ class GenerateRules
 
     public static function generate(): void
     {
-        $code = file_get_contents(__DIR__.'/../Config.php');
-
-        $rules = VarExporter::export(static::rules()->toArray());
-
-        $rules = Collection::make(explode("\n", $rules))
-            ->map(function (string $line, int $index) {
-                return $index === 0 ? $line : "    $line";
-            })->implode("\n");
+        $path = __DIR__.'/../Config.php';
 
         $replaced = preg_replace(
             '/(?<=const RULE_DEFINITIONS = )([^;]+)(?=;)/',
-            $rules,
-            $code
+            static::exportRules(),
+            file_get_contents($path)
         );
 
-        file_put_contents(__DIR__.'/../Config.php', $replaced);
+        file_put_contents($path, $replaced);
+    }
+
+    private static function exportRules(): string
+    {
+        $rules = VarExporter::export(static::rules()->toArray());
+
+        return static::indent($rules);
     }
 
     private static function rules(): Collection
@@ -324,5 +324,13 @@ class GenerateRules
                     );
                 }, Collection::make());
             });
+    }
+
+    private static function indent(string $rules): string
+    {
+        return Collection::make(explode("\n", $rules))
+            ->map(function (string $line, int $index) {
+                return $index === 0 ? $line : "    $line";
+            })->implode("\n");
     }
 }
