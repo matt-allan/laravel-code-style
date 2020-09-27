@@ -27,6 +27,7 @@
         "friendsofphp/php-cs-fixer": "^2.14"
     },
     "require-dev": {
+        "brick/varexporter": "^0.3.2",
         "laravel/framework": "^7.0|^8.0",
         "orchestra/testbench": "^5.0|^6.0",
         "phpunit/phpunit": "^7.0|^8.0"
@@ -44,7 +45,8 @@
     "scripts": {
         "test": "phpunit",
         "check-style": "php-cs-fixer fix --dry-run --diff",
-        "fix-style": "php-cs-fixer fix"
+        "fix-style": "php-cs-fixer fix",
+        "gen-rules": "MattAllan\\LaravelCodeStyle\\Dev\\GenerateRules::generate"
     },
     "config": {
         "sort-packages": true
