@@ -15,10 +15,14 @@ class Config extends \PhpCsFixer\Config
             'align_multiline_comment' => [
                 'comment_type' => 'phpdocs_like',
             ],
+            'ordered_imports' => [
+                'sort_algorithm' => 'alpha',
+            ],
+            'array_indentation' => true,
             'binary_operator_spaces' => [
                 'operators' => [
-                    '=' => 'single_space',
                     '=>' => null,
+                    '=' => 'single_space',
                 ],
             ],
             'blank_line_after_namespace' => true,
@@ -28,7 +32,6 @@ class Config extends \PhpCsFixer\Config
                     'return',
                 ],
             ],
-            'braces' => true,
             'cast_spaces' => true,
             'class_definition' => true,
             'compact_nullable_typehint' => true,
@@ -42,17 +45,13 @@ class Config extends \PhpCsFixer\Config
             'function_declaration' => true,
             'function_typehint_space' => true,
             'single_line_comment_style' => [
-                'comment_types' => ['hash'],
+                'comment_types' => [
+                    'hash',
+                ],
             ],
             'heredoc_to_nowdoc' => true,
             'include' => true,
             'indentation_type' => true,
-            'ordered_imports' => [
-                'sort_algorithm' => 'alpha',
-            ],
-            'list_syntax' => [
-                'syntax' => 'short',
-            ],
             'lowercase_cast' => true,
             'lowercase_constants' => true,
             'lowercase_keywords' => true,
@@ -65,7 +64,12 @@ class Config extends \PhpCsFixer\Config
                     'method',
                 ],
             ],
-            'visibility_required' => true,
+            'visibility_required' => [
+                'elements' => [
+                    'method',
+                    'property',
+                ],
+            ],
             'native_function_casing' => true,
             'native_function_type_declaration_casing' => true,
             'no_alternative_syntax' => true,
@@ -74,10 +78,10 @@ class Config extends \PhpCsFixer\Config
             'no_blank_lines_after_phpdoc' => true,
             'no_extra_blank_lines' => [
                 'tokens' => [
-                    'extra',
                     'throw',
                     'use',
                     'use_trait',
+                    'extra',
                 ],
             ],
             'no_closing_tag' => true,
@@ -131,12 +135,15 @@ class Config extends \PhpCsFixer\Config
             'no_mixed_echo_print' => [
                 'use' => 'echo',
             ],
-            'array_indentation' => true,
+            'braces' => true,
+            'return_type_declaration' => [
+                'space_before' => 'none',
+            ],
             'array_syntax' => [
                 'syntax' => 'short',
             ],
-            'return_type_declaration' => [
-                'space_before' => 'none',
+            'list_syntax' => [
+                'syntax' => 'short',
             ],
             'short_scalar_cast' => true,
             'single_blank_line_at_eof' => true,
@@ -159,8 +166,8 @@ class Config extends \PhpCsFixer\Config
         '@Laravel:risky' => [
             'no_alias_functions' => true,
             'no_unreachable_default_argument_value' => true,
-            'self_accessor' => true,
             'psr4' => true,
+            'self_accessor' => true,
         ],
     ];
 
