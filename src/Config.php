@@ -31,6 +31,7 @@ class Config extends \PhpCsFixer\Config
             'braces' => true,
             'cast_spaces' => true,
             'class_definition' => true,
+            'compact_nullable_typehint' => true,
             'concat_space' => [
                 'spacing' => 'none',
             ],
@@ -55,7 +56,9 @@ class Config extends \PhpCsFixer\Config
             'lowercase_cast' => true,
             'lowercase_constants' => true,
             'lowercase_keywords' => true,
+            'lowercase_static_reference' => true,
             'magic_constant_casing' => true,
+            'magic_method_casing' => true,
             'method_argument_space' => true,
             'class_attributes_separation' => [
                 'elements' => [
@@ -64,6 +67,9 @@ class Config extends \PhpCsFixer\Config
             ],
             'visibility_required' => true,
             'native_function_casing' => true,
+            'native_function_type_declaration_casing' => true,
+            'no_alternative_syntax' => true,
+            'no_binary_string' => true,
             'no_blank_lines_after_class_opening' => true,
             'no_blank_lines_after_phpdoc' => true,
             'no_extra_blank_lines' => [
@@ -95,6 +101,8 @@ class Config extends \PhpCsFixer\Config
             'no_trailing_whitespace' => true,
             'no_trailing_whitespace_in_comment' => true,
             'no_unneeded_control_parentheses' => true,
+            'no_unneeded_curly_braces' => true,
+            'no_unset_cast' => true,
             'no_unused_imports' => true,
             'no_useless_return' => true,
             'no_whitespace_before_comma_in_array' => true,
@@ -107,10 +115,10 @@ class Config extends \PhpCsFixer\Config
             'phpdoc_no_access' => true,
             'phpdoc_no_package' => true,
             'phpdoc_no_useless_inheritdoc' => true,
+            'phpdoc_return_self_reference' => true,
             'phpdoc_scalar' => true,
             'phpdoc_single_line_var_spacing' => true,
             'phpdoc_summary' => true,
-            'phpdoc_to_comment' => true,
             'phpdoc_trim' => true,
             'phpdoc_no_alias_tag' => [
                 'type' => 'var',
@@ -123,11 +131,14 @@ class Config extends \PhpCsFixer\Config
             'no_mixed_echo_print' => [
                 'use' => 'echo',
             ],
+            'array_indentation' => true,
             'array_syntax' => [
                 'syntax' => 'short',
             ],
+            'return_type_declaration' => [
+                'space_before' => 'none',
+            ],
             'short_scalar_cast' => true,
-            'simplified_null_return' => true,
             'single_blank_line_at_eof' => true,
             'single_blank_line_before_namespace' => true,
             'single_class_element_per_statement' => true,
