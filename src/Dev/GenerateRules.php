@@ -6,6 +6,7 @@ namespace MattAllan\LaravelCodeStyle\Dev;
 
 use Brick\VarExporter\VarExporter;
 use Illuminate\Support\Collection;
+use StyleCI\SDK\Client as StyleCIClient;
 
 /**
  * A utility for converting StyleCI rules to PHPCS Rules.
@@ -15,127 +16,13 @@ use Illuminate\Support\Collection;
 class GenerateRules
 {
     /**
-     * @see https://docs.styleci.io/presets#laravel
+     * The rules used by StyleCI that are not available in a stable
+     * released version of PHP-CS-Fixer.
      */
-    const STYLECI_PRESET = [
-        '@Laravel' => [
-            // the @PSR2 preset isn't listed in the StyleCI preset but is used by Laravel.
-            // @see https://laravel.com/docs/8.x/contributions#coding-style
-            '@PSR2',
-            'align_phpdoc',
-            'alpha_ordered_imports',
-            'array_indentation',
-            'binary_operator_spaces',
-            'blank_line_after_namespace',
-            'blank_line_after_opening_tag',
-            'blank_line_before_return',
-            'cast_spaces',
-            'class_definition',
-            'compact_nullable_typehint',
-            'concat_without_spaces',
-            'declare_equal_normalize',
-            // 'die_to_exit', todo: unreleased
-            'elseif',
-            'encoding',
-            'full_opening_tag',
-            'function_declaration',
-            'function_typehint_space',
-            'hash_to_slash_comment',
-            'heredoc_to_nowdoc',
-            'include',
-            'indentation',
-            'lowercase_cast',
-            'lowercase_constants',
-            'lowercase_keywords',
-            'lowercase_static_reference',
-            'magic_constant_casing',
-            'magic_method_casing',
-            'method_argument_space',
-            'method_separation',
-            'method_visibility_required',
-            'native_function_casing',
-            'native_function_type_declaration_casing',
-            'no_alternative_syntax',
-            'no_binary_string',
-            'no_blank_lines_after_class_opening',
-            'no_blank_lines_after_phpdoc',
-            'no_blank_lines_after_throw',
-            'no_blank_lines_between_imports',
-            'no_blank_lines_between_traits',
-            'no_closing_tag',
-            'no_empty_phpdoc',
-            'no_empty_statement',
-            'no_extra_consecutive_blank_lines',
-            'no_leading_import_slash',
-            'no_leading_namespace_whitespace',
-            'no_multiline_whitespace_around_double_arrow',
-            'no_multiline_whitespace_before_semicolons',
-            'no_short_bool_cast',
-            'no_singleline_whitespace_before_semicolons',
-            'no_spaces_after_function_name',
-            'no_spaces_inside_offset',
-            'no_spaces_inside_parenthesis',
-            'no_trailing_comma_in_list_call',
-            'no_trailing_comma_in_singleline_array',
-            'no_trailing_whitespace',
-            'no_trailing_whitespace_in_comment',
-            'no_unneeded_control_parentheses',
-            'no_unneeded_curly_braces',
-            'no_unset_cast',
-            'no_unused_imports',
-            // 'no_unused_lambda_imports', todo: unreleased
-            'no_useless_return',
-            'no_whitespace_before_comma_in_array',
-            'no_whitespace_in_blank_line',
-            'normalize_index_brace',
-            'not_operator_with_successor_space',
-            'object_operator_without_whitespace',
-            'phpdoc_indent',
-            'phpdoc_inline_tag',
-            'phpdoc_no_access',
-            'phpdoc_no_package',
-            'phpdoc_no_useless_inheritdoc',
-            'phpdoc_return_self_reference',
-            'phpdoc_scalar',
-            'phpdoc_single_line_var_spacing',
-            'phpdoc_summary',
-            'phpdoc_trim',
-            'phpdoc_type_to_var',
-            'phpdoc_types',
-            'phpdoc_var_without_name',
-            'post_increment',
-            'print_to_echo',
-            'property_visibility_required',
-            'psr12_braces',
-            'return_type_declaration',
-            'short_array_syntax',
-            'short_list_syntax',
-            'short_scalar_cast',
-            'single_blank_line_at_eof',
-            'single_blank_line_before_namespace',
-            'single_class_element_per_statement',
-            'single_import_per_statement',
-            'single_line_after_imports',
-            'single_quote',
-            'space_after_semicolon',
-            'standardize_not_equals',
-            'switch_case_semicolon_to_colon',
-            'switch_case_space',
-            // 'switch_continue_to_break', todo: unreleased
-            'ternary_operator_spaces',
-            'trailing_comma_in_multiline_array',
-            'trim_array_spaces',
-            'unalign_equals',
-            'unary_operator_spaces',
-            'unix_line_endings',
-            'whitespace_after_comma_in_array',
-        ],
-        '@Laravel:risky' => [
-            'no_alias_functions',
-            'no_unreachable_default_argument_value',
-            'psr4',
-            'self_accessor',
-        ],
+    const UNRELEASED_RULES = [
+        'die_to_exit',
+        'no_unused_lambda_imports',
+        'switch_continue_to_break',
     ];
 
     /**
@@ -294,7 +181,18 @@ class GenerateRules
         ],
     ];
 
-    public static function generate(): void
+    /**
+     * @var \StyleCI\SDK\Client|null
+     */
+    private $styleCIClient;
+
+    public function __construct(?StyleCIClient $styleCIClient = null)
+    {
+        $this->styleCIClient = $styleCIClient ?? new StyleCIClient();
+        $this->registerMacros();
+    }
+
+    public function __invoke(): void
     {
         $path = __DIR__.'/../Config.php';
 
@@ -307,30 +205,67 @@ class GenerateRules
         file_put_contents($path, $replaced);
     }
 
-    private static function exportRules(): string
+    private function exportRules(): string
     {
         $rules = VarExporter::export(static::rules()->toArray());
 
         return static::indent($rules);
     }
 
-    private static function rules(): Collection
-    {
-        return Collection::make(static::STYLECI_PRESET)
-            ->map(function (array $rules) {
-                return Collection::make($rules)->reduce(function (Collection $carry, string $rule) {
-                    return $carry->mergeRecursive(
-                        static::STYLECI_TO_PHPCS_MAP[$rule] ?? [$rule => true]
-                    );
-                }, Collection::make());
-            });
-    }
-
-    private static function indent(string $rules): string
+    private function indent(string $rules): string
     {
         return Collection::make(explode("\n", $rules))
             ->map(function (string $line, int $index) {
                 return $index === 0 ? $line : "    $line";
             })->implode("\n");
+    }
+
+    private function rules(): Collection
+    {
+        return collect($this->styleCIClient->presets())
+            ->realize()
+            ->firstWhere('name', 'laravel')
+            ->get('fixers')
+            ->reject(function (string $rule) {
+                return in_array($rule, self::UNRELEASED_RULES);
+            })
+            ->pipe(function (Collection $rules) {
+                $fixers = collect($this->styleCIClient->fixers())->realize();
+
+                [$risky, $notRisky] = $rules->partition(function ($rule) use ($fixers) {
+                    return $fixers->firstWhere('name', $rule)->get('risky');
+                });
+
+                return collect([
+                    '@Laravel' => $notRisky,
+                    '@Laravel:risky' => $risky,
+                ]);
+            })
+            ->tap(function (Collection $rules) {
+                // the @PSR2 preset isn't listed in the StyleCI preset but is used by Laravel.
+                // @see https://laravel.com/docs/8.x/contributions#coding-style
+                // @todo: see if this is redundant
+                $rules->get('@Laravel')->prepend('@PSR2');
+            })
+            ->map(function (Collection $rules) {
+                return $rules->reduce(function (Collection $carry, string $rule) {
+                    return $carry->mergeRecursive(
+                        static::STYLECI_TO_PHPCS_MAP[$rule] ?? [$rule => true]
+                    );
+                }, collect());
+            });
+    }
+
+    private function registerMacros()
+    {
+        if (! Collection::hasMacro('realize')) {
+            // "Realize" the collection by recursively converting all
+            // nested arrays to collections.
+            Collection::macro('realize', function () {
+                return $this->map(function ($value) {
+                    return is_array($value) ? (new static($value))->realize() : $value;
+                });
+            });
+        }
     }
 }
