@@ -12,7 +12,7 @@ If you are just changing the ruleset to better match Laravel's code style go ahe
 
 The `MattAllan\LaravelCodeStyle\Config::RULE_DEFINITIONS` array is generated. It should not be edited by hand. If you need to add a rule or change the config for a rule, you should first add it to `MattAllan\LaravelCodeStyle\Dev\GenerateRules`.
 
-The `GenerateRules::STYLECI_PRESET` constant defines all of the rule names used by the StyleCI preset. StyleCI does not always use the same rule names as PHPCS. To define a mapping you can add an entry to `GenerateRules::STYLECI_TO_PHPCS_MAP`.
+StyleCI does not always use the same rule names as PHPCS. To define a mapping you can add an entry to `GenerateRules::STYLECI_TO_PHPCS_MAP`.
 
 Once you've updated the rules, you can re-generate the config:
 
