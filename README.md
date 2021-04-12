@@ -12,8 +12,6 @@ You might want to use this package if you are writing a Laravel application, pac
 
 If you are wondering why this package exists you can [read the announcement post](https://mattallan.me/posts/automate-code-formatting-for-laravel-projects/).
 
-![example code formatting](https://repository-images.githubusercontent.com/182856423/07c42600-6fe5-11e9-88fb-dd2e7451c77a)
-
 ## Installation
 
 > ⚠️ These docs are for the latest version. If you are using an older version you can find the docs for previous releases [here](#releases).
