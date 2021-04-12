@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MattAllan\LaravelCodeStyle;
 
+use Illuminate\Foundation\Application as Laravel;
 use PhpCsFixer\Console\Application;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -13,6 +14,10 @@ class FormattingTest extends TestCase
 {
     public function test_formatting_matches_laravel()
     {
+        if (((int) substr(Laravel::VERSION, 0, 1)) < 8) {
+            $this->markTestSkipped('ormatting is not up to date for old Laravel versions');
+        }
+
         $application = tap(new Application())->setAutoExit(false);
         $exitCode = $application->run(
             new ArrayInput([
