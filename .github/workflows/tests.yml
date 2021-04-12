@@ -17,11 +17,8 @@ jobs:
       matrix:
         php-versions: ['7.3', '7.4']
         laravel-versions: [^7.0, ^8.0]
-        exclude:
-          - php-versions: 7.2
-            laravel-versions: ^8.0
         include:
-          - php-versions: 7.2
+          - php-versions: 7.3
             dependency-version: "--prefer-lowest --prefer-stable"
     steps:
       - name: Checkout
