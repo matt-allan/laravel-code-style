@@ -15,7 +15,7 @@ class FormattingTest extends TestCase
     public function test_formatting_matches_laravel()
     {
         if (((int) substr(Laravel::VERSION, 0, 1)) < 8) {
-            $this->markTestSkipped('ormatting is not up to date for old Laravel versions');
+            $this->markTestSkipped('Formatting is not up to date for old Laravel versions');
         }
 
         $application = tap(new Application())->setAutoExit(false);
