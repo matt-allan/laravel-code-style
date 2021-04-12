@@ -17,6 +17,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Removed
 
 - Removed the `phpdoc_inline_tag` rule.
+- Dropped PHP 7.2 support.
 
 ### Security
 
