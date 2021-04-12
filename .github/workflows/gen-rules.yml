@@ -1,0 +1,30 @@
+name: Generate rules
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  gen-rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Install PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: "7.4"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: php-7.4-composer-${{ hashFiles('composer.json') }}
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress --no-suggest
+
+      - name: Generate rules
+        run: bin/gen-rules
