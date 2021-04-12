@@ -20,7 +20,10 @@ class GenerateRules
      * released version of PHP-CS-Fixer.
      */
     const UNRELEASED_RULES = [
+        'clean_namespace',
+        'phpdoc_inline_tag_normalizer',
         'phpdoc_singular_inheritdoc',
+        'switch_continue_to_break',
     ];
 
     /**
