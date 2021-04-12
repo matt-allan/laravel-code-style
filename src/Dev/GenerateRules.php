@@ -20,9 +20,7 @@ class GenerateRules
      * released version of PHP-CS-Fixer.
      */
     const UNRELEASED_RULES = [
-        'die_to_exit',
-        'no_unused_lambda_imports',
-        'switch_continue_to_break',
+        'phpdoc_singular_inheritdoc',
     ];
 
     /**
