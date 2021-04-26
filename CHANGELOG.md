@@ -8,7 +8,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Added
 
-- Added the `clean_namespace`, `no_alias_language_construct_call`, `lambda_not_used_import`, `switch_continue_to_break`, and `phpdoc_inline_tag_normalizer` rules.
+- Added the `array_indentation`, `clean_namespace`, `no_alias_language_construct_call`, `lambda_not_used_import`, `switch_continue_to_break`, and `phpdoc_inline_tag_normalizer` rules.
 
 ### Deprecated
 
