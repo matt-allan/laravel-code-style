@@ -10,9 +10,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Added the `array_indentation`, `clean_namespace`, `no_alias_language_construct_call`, `lambda_not_used_import`, `switch_continue_to_break`, and `phpdoc_inline_tag_normalizer` rules.
 
-### Deprecated
+### Changed
 
-### Fixed
+- Added `allow_single_line_anonymous_class_with_empty_body => true` to the `braces` rule.
 
 ### Removed
 
