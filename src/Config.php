@@ -54,6 +54,9 @@ class Config extends \PhpCsFixer\Config
             'heredoc_to_nowdoc' => true,
             'include' => true,
             'indentation_type' => true,
+            'braces' => [
+                'allow_single_line_anonymous_class_with_empty_body' => true,
+            ],
             'lowercase_cast' => true,
             'lowercase_constants' => true,
             'lowercase_keywords' => true,
@@ -138,7 +141,6 @@ class Config extends \PhpCsFixer\Config
             'no_mixed_echo_print' => [
                 'use' => 'echo',
             ],
-            'braces' => true,
             'return_type_declaration' => [
                 'space_before' => 'none',
             ],

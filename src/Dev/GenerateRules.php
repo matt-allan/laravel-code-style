@@ -73,10 +73,10 @@ class GenerateRules
         'indentation' => [
             'indentation_type' => true,
         ],
-        // @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/4943
         'laravel_braces' => [
-            // todo: add ['allow_single_line_anonymous_class_with_empty_body' => true] once released
-            'braces' => true,
+            'braces' => [
+                'allow_single_line_anonymous_class_with_empty_body' => true,
+            ],
         ],
         'method_separation' => [
             'class_attributes_separation' => [
