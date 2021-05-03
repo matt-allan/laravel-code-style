@@ -148,7 +148,7 @@ class GenerateRules
             ],
         ],
         // @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/4943
-        'psr12_braces' => [
+        'laravel_braces' => [
             // todo: add ['allow_single_line_anonymous_class_with_empty_body' => true] once released
             'braces' => true,
         ],
