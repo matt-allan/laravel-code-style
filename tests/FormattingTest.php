@@ -18,6 +18,8 @@ class FormattingTest extends TestCase
             $this->markTestSkipped('Formatting is not up to date for old Laravel versions');
         }
 
+        $this->markTestSkipped('Waiting on upstream, see #47');
+
         $application = tap(new Application())->setAutoExit(false);
         $exitCode = $application->run(
             new ArrayInput([
