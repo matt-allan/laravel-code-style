@@ -44,7 +44,7 @@ jobs:
           composer require --dev laravel/framework:${{ matrix.laravel-versions }} --no-update
 
       - name: Install dependencies
-        run: composer update ${{ matrix.dependency-version }}  --prefer-dist --no-interaction --no-progress --no-suggest
+        run: composer update ${{ matrix.dependency-version }}  --prefer-dist --no-interaction --no-progress
 
       - name: Check for style violations
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
