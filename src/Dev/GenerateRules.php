@@ -78,10 +78,15 @@ class GenerateRules
                 'allow_single_line_anonymous_class_with_empty_body' => true,
             ],
         ],
+        'lowercase_constants' => [
+            'constant_case' => [
+                'case' => 'lower',
+            ],
+        ],
         'method_separation' => [
             'class_attributes_separation' => [
                 'elements' => [
-                    'method',
+                    'method' => 'one',
                 ],
             ],
         ],
@@ -134,7 +139,9 @@ class GenerateRules
         ],
         'phpdoc_type_to_var' => [
             'phpdoc_no_alias_tag' => [
-                'type' => 'var',
+                'replacements' => [
+                    'type' => 'var',
+                ],
             ],
         ],
         'post_increment' => [
@@ -152,6 +159,9 @@ class GenerateRules
                 'elements' => ['property'],
             ],
         ],
+        'psr4' => [
+            'psr_autoloading' => true,
+        ],
         'return_type_declaration' => [
             'return_type_declaration' => [
                 'space_before' => 'none',
@@ -165,6 +175,11 @@ class GenerateRules
         'short_list_syntax' => [
             'list_syntax' => [
                 'syntax' => 'short',
+            ],
+        ],
+        'trailing_comma_in_multiline_array' => [
+            'trailing_comma_in_multiline' => [
+                'elements' => ['arrays'],
             ],
         ],
         'unalign_equals' => [

@@ -11,7 +11,7 @@ class ServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/.php_cs' => base_path('.php_cs'),
+            __DIR__.'/../config/.php-cs-fixer.dist.php' => base_path('.php-cs-fixer.dist.php'),
         ], 'config');
     }
 }

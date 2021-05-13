@@ -18,7 +18,7 @@ class ServiceProviderTest extends TestCase
         $mockFileSystem
             ->shouldReceive('isFile')
             ->with(Mockery::on(static function ($a) {
-                return strpos($a, 'config/.php_cs') > 0;
+                return strpos($a, 'config/.php-cs-fixer.dist.php') > 0;
             }))
             ->andReturn(true)
             ->once();
