@@ -25,7 +25,7 @@ class FormattingTest extends TestCase
             new ArrayInput([
                 'command' => 'fix',
                 'path' => [__DIR__.'/../vendor/laravel/framework'],
-                '--config' => __DIR__.'/fixtures/.php_cs',
+                '--config' => __DIR__.'/fixtures/.php-cs-fixer.dist.php',
                 '--dry-run' => true,
                 '--diff' => true,
                 '--verbose' => true,

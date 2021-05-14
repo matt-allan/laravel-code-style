@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MattAllan\LaravelCodeStyle;
 
+use PhpCsFixer\ConfigInterface;
+
 class Config extends \PhpCsFixer\Config
 {
     /**
@@ -58,7 +60,9 @@ class Config extends \PhpCsFixer\Config
                 'allow_single_line_anonymous_class_with_empty_body' => true,
             ],
             'lowercase_cast' => true,
-            'lowercase_constants' => true,
+            'constant_case' => [
+                'case' => 'lower',
+            ],
             'lowercase_keywords' => true,
             'lowercase_static_reference' => true,
             'magic_constant_casing' => true,
@@ -66,7 +70,7 @@ class Config extends \PhpCsFixer\Config
             'method_argument_space' => true,
             'class_attributes_separation' => [
                 'elements' => [
-                    'method',
+                    'method' => 'one',
                 ],
             ],
             'visibility_required' => [
@@ -131,7 +135,9 @@ class Config extends \PhpCsFixer\Config
             'phpdoc_summary' => true,
             'phpdoc_trim' => true,
             'phpdoc_no_alias_tag' => [
-                'type' => 'var',
+                'replacements' => [
+                    'type' => 'var',
+                ],
             ],
             'phpdoc_types' => true,
             'phpdoc_var_without_name' => true,
@@ -163,7 +169,11 @@ class Config extends \PhpCsFixer\Config
             'switch_case_space' => true,
             'switch_continue_to_break' => true,
             'ternary_operator_spaces' => true,
-            'trailing_comma_in_multiline_array' => true,
+            'trailing_comma_in_multiline' => [
+                'elements' => [
+                    'arrays',
+                ],
+            ],
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,
             'line_ending' => true,
@@ -172,7 +182,7 @@ class Config extends \PhpCsFixer\Config
         '@Laravel:risky' => [
             'no_alias_functions' => true,
             'no_unreachable_default_argument_value' => true,
-            'psr4' => true,
+            'psr_autoloading' => true,
             'self_accessor' => true,
         ],
     ];
@@ -182,7 +192,7 @@ class Config extends \PhpCsFixer\Config
         parent::__construct($name);
     }
 
-    public function setRules(array $rules)
+    public function setRules(array $rules): ConfigInterface
     {
         foreach (array_keys(self::RULE_DEFINITIONS) as $key) {
             if (($rules[$key] ?? false)) {
