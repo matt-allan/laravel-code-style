@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MattAllan\LaravelCodeStyle;
 
+use PhpCsFixer\ConfigInterface;
+
 class Config extends \PhpCsFixer\Config
 {
     /**
@@ -190,7 +192,7 @@ class Config extends \PhpCsFixer\Config
         parent::__construct($name);
     }
 
-    public function setRules(array $rules)
+    public function setRules(array $rules): ConfigInterface
     {
         foreach (array_keys(self::RULE_DEFINITIONS) as $key) {
             if (($rules[$key] ?? false)) {
