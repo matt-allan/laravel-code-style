@@ -24,7 +24,7 @@
     "require": {
         "php": ">=7.3",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "illuminate/support": "5.7.x|5.8.x|^6.0|^7.0|^8.0"
+        "illuminate/support": "^7.0|^8.0"
     },
     "require-dev": {
         "brick/varexporter": "^0.3.2",
