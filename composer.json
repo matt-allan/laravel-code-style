@@ -29,7 +29,7 @@
     "require-dev": {
         "brick/varexporter": "^0.3.2",
         "laravel/framework": "^7.0|^8.0",
-        "orchestra/testbench": "^4.0|^5.0|^6.0",
+        "orchestra/testbench": "^5.0|^6.0",
         "phpunit/phpunit": "^7.0|^8.0",
         "styleci/sdk": "^1.3"
     },
