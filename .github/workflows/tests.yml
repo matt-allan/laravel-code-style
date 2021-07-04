@@ -16,7 +16,7 @@ jobs:
       max-parallel: 15
       matrix:
         php-versions: ['7.3', '7.4', '8.0']
-        laravel-versions: [^5.7, ^5.8, ^6.0, ^7.0, ^8.0]
+        laravel-versions: [^7.0, ^8.0]
         include:
           - php-versions: 7.3
             dependency-version: "--prefer-lowest --prefer-stable"
