@@ -18,6 +18,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Removed the `phpdoc_inline_tag` rule.
 - Dropped PHP 7.2 support.
+- Dropped support for `illuminate/support` `5.7.x|5.8.x|^6.0`. You will need to use `^7.0` going forward.
 
 ### Security
 
