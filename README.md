@@ -37,7 +37,7 @@ Once the package is installed you should publish the configuration.
 php artisan vendor:publish --provider="MattAllan\LaravelCodeStyle\ServiceProvider"
 ```
 
-Publishing the config will add a `.php_cs` configuration file to the root of your project.  You may customize this file as needed.  The `.php_cs` file should be committed to version control.
+Publishing the config will add a `.php-cs-fixer.dist.php` configuration file to the root of your project.  You may customize this file as needed.  The `.php-cs-fixer.dist.php` file should be committed to version control.
 
 A cache file will be written to `.php_cs.cache` in the project root the first time you run the fixer.  You should ignore this file so it is not added to your version control system.
 
@@ -97,7 +97,7 @@ For a complete list of options please consult the [php-cs-fixer documentation](h
 
 ## Configuration
 
-The default configuration is published as `.php_cs` in the project root.  You can customize this file to change options such as the paths searched or the fixes applied.
+The default configuration is published as `.php-cs-fixer.dist.php` in the project root.  You can customize this file to change options such as the paths searched or the fixes applied.
 
 ### Paths
 
