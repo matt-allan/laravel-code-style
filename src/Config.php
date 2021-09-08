@@ -89,7 +89,6 @@ class Config extends \PhpCsFixer\Config
                 'tokens' => [
                     'throw',
                     'use',
-                    'use_trait',
                     'extra',
                 ],
             ],
@@ -176,6 +175,9 @@ class Config extends \PhpCsFixer\Config
             ],
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,
+            'types_spaces' => [
+                'space' => 'none',
+            ],
             'line_ending' => true,
             'whitespace_after_comma_in_array' => true,
         ],
