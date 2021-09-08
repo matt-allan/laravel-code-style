@@ -21,6 +21,9 @@ class GenerateRules
      */
     const UNRELEASED_RULES = [
         'phpdoc_singular_inheritdoc',
+        // See https://github.com/FriendsOfPHP/PHP-CS-Fixer/commit/89106bccfb33fdac02397f231966f37d14bf4e07
+        'integer_literal_case',
+
     ];
 
     /**
@@ -187,6 +190,11 @@ class GenerateRules
                 'operators' => [
                     '=' => 'single_space',
                 ],
+            ],
+        ],
+        'union_type_without_spaces' => [
+            'types_spaces' => [
+                'space' => 'none',
             ],
         ],
         'unix_line_endings' => [
