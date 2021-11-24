@@ -35,7 +35,7 @@ class Config extends \PhpCsFixer\Config
                 ],
             ],
             'cast_spaces' => true,
-            'class_definition' => true,
+            'class_definition' => false,
             'clean_namespace' => true,
             'compact_nullable_typehint' => true,
             'concat_space' => [
@@ -56,9 +56,7 @@ class Config extends \PhpCsFixer\Config
             'heredoc_to_nowdoc' => true,
             'include' => true,
             'indentation_type' => true,
-            'braces' => [
-                'allow_single_line_anonymous_class_with_empty_body' => true,
-            ],
+            'braces' => false,
             'lowercase_cast' => true,
             'constant_case' => [
                 'case' => 'lower',
@@ -67,7 +65,9 @@ class Config extends \PhpCsFixer\Config
             'lowercase_static_reference' => true,
             'magic_constant_casing' => true,
             'magic_method_casing' => true,
-            'method_argument_space' => true,
+            'method_argument_space' => [
+                'on_multiline' => 'ignore',
+            ],
             'class_attributes_separation' => [
                 'elements' => [
                     'method' => 'one',
@@ -101,6 +101,7 @@ class Config extends \PhpCsFixer\Config
             'multiline_whitespace_before_semicolons' => true,
             'no_short_bool_cast' => true,
             'no_singleline_whitespace_before_semicolons' => true,
+            'no_space_around_double_colon' => true,
             'no_spaces_after_function_name' => true,
             'no_spaces_around_offset' => [
                 'positions' => [
