@@ -56,6 +56,7 @@ class Config extends \PhpCsFixer\Config
             'heredoc_to_nowdoc' => true,
             'include' => true,
             'indentation_type' => true,
+            'integer_literal_case' => true,
             'braces' => false,
             'lowercase_cast' => true,
             'constant_case' => [
