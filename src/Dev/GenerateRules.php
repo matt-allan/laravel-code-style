@@ -20,6 +20,12 @@ class GenerateRules
      * released version of PHP-CS-Fixer.
      */
     const UNRELEASED_RULES = [
+        // https://docs.styleci.io/fixers#laravel_phpdoc_alignment
+        'laravel_phpdoc_alignment',
+        // https://docs.styleci.io/fixers#laravel_phpdoc_order
+        'laravel_phpdoc_order',
+        // https://docs.styleci.io/fixers#laravel_phpdoc_separation
+        'laravel_phpdoc_separation',
         'phpdoc_singular_inheritdoc',
     ];
 
@@ -81,27 +87,6 @@ class GenerateRules
             // TODO: enable once braces fixers are split
             // See https://github.com/matt-allan/laravel-code-style/issues/47
             'braces' => false,
-            // 'braces' => [
-            //     'allow_single_line_anonymous_class_with_empty_body' => true,
-            // ],
-        ],
-        'laravel_phpdoc_alignment' => [
-            // TODO: use 2 spaces after w/ vertical alignment
-            // Need to write a new fixer?
-            // See https://docs.styleci.io/fixers#laravel_phpdoc_alignment
-            // 'phpdoc_align' => false,
-        ],
-        'laravel_phpdoc_order' => [
-            // TODO: enable once other phpdoc rules work
-            // @param, then @return, then @throws
-            // See https://docs.styleci.io/fixers#laravel_phpdoc_order
-            // 'phpdoc_order' => true,
-        ],
-        'laravel_phpdoc_separation' => [
-            // TODO: separate but group @param and @return
-            // Need to fork https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/07430f5aca4874476bf175317cfb6284cd80421a/src/DocBlock/TagComparator.php
-            // See https://docs.styleci.io/fixers#laravel_phpdoc_separation
-            // 'phpdoc_separation' => false,
         ],
         'lowercase_constants' => [
             'constant_case' => [
