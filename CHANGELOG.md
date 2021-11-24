@@ -7,20 +7,28 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## Unreleased
 
 ### Added
+### Changed 
+### Removed 
 
-- Added the `array_indentation`, `clean_namespace`, `no_alias_language_construct_call`, `lambda_not_used_import`, `switch_continue_to_break`, and `phpdoc_inline_tag_normalizer` rules.
+## 0.7.0
+
+### Added
+
+- Added the `array_indentation`, `clean_namespace`, `no_alias_language_construct_call`, `lambda_not_used_import`, `switch_continue_to_break`, `phpdoc_inline_tag_normalizer`, `integer_literal_case`, `no_space_around_double_colon`, and `types_spaces` rules.
+- Added support for PHP 8.0.
+- Added support for PHP-CS-Fixer 3.x
 
 ### Changed
 
-- Added `allow_single_line_anonymous_class_with_empty_body => true` to the `braces` rule.
+- The `method_argument_space` rule was updated to ignore multiline method calls.
 
 ### Removed
 
 - Removed the `phpdoc_inline_tag` rule.
-- Dropped PHP 7.2 support.
+- Removed the `braces` rule.
+- Dropped PHP 7.2 and PHP 7.3 support.
 - Dropped support for `illuminate/support` `5.7.x|5.8.x|^6.0`. You will need to use `^7.0` going forward.
-
-### Security
+- Removed support for PHP-CS-Fixer versions before 3.2.0.
 
 ## 0.6.0
 
