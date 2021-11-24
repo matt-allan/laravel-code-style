@@ -15,10 +15,10 @@ jobs:
       fail-fast: false
       max-parallel: 15
       matrix:
-        php-versions: ['7.3', '7.4', '8.0']
+        php-versions: ['7.4', '8.0']
         laravel-versions: [^7.0, ^8.0]
         include:
-          - php-versions: 7.3
+          - php-versions: 7.4
             dependency-version: "--prefer-lowest --prefer-stable"
     steps:
       - name: Checkout
