@@ -20,6 +20,12 @@ class GenerateRules
      * released version of PHP-CS-Fixer.
      */
     const UNRELEASED_RULES = [
+        // https://docs.styleci.io/fixers#laravel_phpdoc_alignment
+        'laravel_phpdoc_alignment',
+        // https://docs.styleci.io/fixers#laravel_phpdoc_order
+        'laravel_phpdoc_order',
+        // https://docs.styleci.io/fixers#laravel_phpdoc_separation
+        'laravel_phpdoc_separation',
         'phpdoc_singular_inheritdoc',
     ];
 
@@ -57,6 +63,10 @@ class GenerateRules
                 ],
             ],
         ],
+        'class_definition' => [
+            // TODO: re-enable once it doesn't break anonymous classes
+            'class_definition' => false,
+        ],
         'concat_without_spaces' => [
             'concat_space' => [
                 'spacing' => 'none',
@@ -74,13 +84,18 @@ class GenerateRules
             'indentation_type' => true,
         ],
         'laravel_braces' => [
-            'braces' => [
-                'allow_single_line_anonymous_class_with_empty_body' => true,
-            ],
+            // TODO: enable once braces fixers are split
+            // See https://github.com/matt-allan/laravel-code-style/issues/47
+            'braces' => false,
         ],
         'lowercase_constants' => [
             'constant_case' => [
                 'case' => 'lower',
+            ],
+        ],
+        'method_argument_space' => [
+            'method_argument_space' => [
+                'on_multiline' => 'ignore',
             ],
         ],
         'method_separation' => [
@@ -187,6 +202,11 @@ class GenerateRules
                 'operators' => [
                     '=' => 'single_space',
                 ],
+            ],
+        ],
+        'union_type_without_spaces' => [
+            'types_spaces' => [
+                'space' => 'none',
             ],
         ],
         'unix_line_endings' => [
