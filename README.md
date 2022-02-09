@@ -3,6 +3,8 @@
 [![Latest Stable Version](https://poser.pugx.org/matt-allan/laravel-code-style/version.png)](https://packagist.org/packages/matt-allan/laravel-code-style)
 ![Tests](https://github.com/matt-allan/laravel-code-style/workflows/Tests/badge.svg)
 
+> ⚠️ This package is no longer maintained. See [Jubeki/laravel-code-style](https://github.com/Jubeki/laravel-code-style) for a maintained fork.
+
 
 This package provides automatic code style checking and formatting for Laravel applications and packages. Your code is formatted following Laravel's code style guide.
 
