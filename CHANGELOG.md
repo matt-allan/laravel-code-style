@@ -10,6 +10,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed 
 ### Removed 
 
+## 0.7.1
+
+- Added deprecation notice to composer.json.
+
 ## 0.7.0
 
 ### Added
